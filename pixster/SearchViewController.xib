@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4488.1" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3715.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController">
             <connections>
+                <outlet property="collectionView" destination="JvM-nu-FCn" id="VQJ-Sk-q0k"/>
                 <outlet property="searchDisplayController" destination="rT2-Z7-Qyx" id="gRW-4q-sXJ"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -16,24 +17,62 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jUh-W2-SQN">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JvM-nu-FCn">
+                    <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1o6-Su-8in">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <cells/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Yda-T6-uMs"/>
+                        <outlet property="delegate" destination="-1" id="S11-sZ-KZr"/>
+                    </connections>
+                </collectionView>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jUh-W2-SQN">
+                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="XAM-y2-FDt"/>
+                    </constraints>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="Xk2-XS-ZMR"/>
                     </connections>
                 </searchBar>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhF-Pu-aDI">
+                    <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="muG-RQ-myE"/>
+                    </constraints>
+                    <items>
+                        <navigationItem title="Title" id="rHc-yT-Xkh"/>
+                    </items>
+                </navigationBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="JvM-nu-FCn" secondAttribute="trailing" id="3aa-QQ-hFt"/>
+                <constraint firstItem="jUh-W2-SQN" firstAttribute="top" secondItem="bhF-Pu-aDI" secondAttribute="bottom" id="NZK-iv-XXn"/>
+                <constraint firstItem="JvM-nu-FCn" firstAttribute="top" secondItem="jUh-W2-SQN" secondAttribute="bottom" id="OXy-M1-UDL"/>
+                <constraint firstItem="bhF-Pu-aDI" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="VDD-6g-3mg"/>
+                <constraint firstItem="bhF-Pu-aDI" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="ZDS-8B-SN4"/>
+                <constraint firstAttribute="trailing" secondItem="bhF-Pu-aDI" secondAttribute="trailing" id="d9B-fQ-btk"/>
+                <constraint firstAttribute="trailing" secondItem="jUh-W2-SQN" secondAttribute="trailing" id="fFx-NN-ckP"/>
+                <constraint firstItem="JvM-nu-FCn" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="h5N-Qf-dVh"/>
+                <constraint firstAttribute="bottom" secondItem="JvM-nu-FCn" secondAttribute="bottom" id="p7m-fE-hXF"/>
+                <constraint firstItem="jUh-W2-SQN" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="r3X-YB-mxb"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
         <searchDisplayController id="rT2-Z7-Qyx">
             <connections>
                 <outlet property="delegate" destination="-1" id="7uy-Xb-AXS"/>
                 <outlet property="searchBar" destination="jUh-W2-SQN" id="4fx-60-hBI"/>
-                <outlet property="searchContentsController" destination="-1" id="rTT-i0-fWs"/>
-                <outlet property="searchResultsDataSource" destination="-1" id="Obj-kk-PHF"/>
                 <outlet property="searchResultsDelegate" destination="-1" id="CDa-Fj-Ndf"/>
             </connections>
         </searchDisplayController>
